@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joel Cherono | Dairy Farming Consultant &amp; Animal Scientist</title>
+<meta name="description" content="Joel Cherono is an Animal Scientist and Dairy Farming Consultant helping Kenyan farmers build profitable, productive dairy enterprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1B3A2A;
+    --forest-deep:#122A1D;
+    --green:#5C8A5A;
+    --green-soft:#7FA47D;
+    --cream:#F3EEE1;
+    --cream-deep:#EAE2CE;
+    --charcoal:#262420;
+    --gold:#B08D4F;
+    --white:#FFFFFF;
+    --line:rgba(38,36,32,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.15;
+    color:var(--forest-deep);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(243,238,225,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    transition:background .3s ease;
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;
+    color:var(--forest-deep);
+  }
+  .brand span{color:var(--green);font-style:italic;}
+  nav ul{display:flex;gap:28px;list-style:none;}
+  nav a{
+    font-size:0.92rem;font-weight:500;color:var(--charcoal);
+    position:relative;padding-bottom:2px;
+  }
+  nav a::after{
+    content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;
+    background:var(--forest);transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--forest);color:var(--white);padding:10px 20px;
+    border-radius:2px;font-size:0.88rem;font-weight:500;
+    transition:background .25s ease;
+  }
+  .nav-cta:hover{background:var(--forest-deep);}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;}
+  @media(max-width:900px){
+    nav ul{display:none;}
+    .nav-cta{display:none;}
+    .menu-btn{display:block;}
+    .nav-inner{padding:16px 20px;}
+    .mobile-nav{
+      display:none;flex-direction:column;gap:0;
+      background:var(--cream);border-top:1px solid var(--line);
+    }
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{
+      padding:16px 20px;border-bottom:1px solid var(--line);font-size:0.95rem;
+    }
+    .mobile-nav .nav-cta{display:block;margin:16px 20px;text-align:center;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:flex-end;
+    padding:140px 0 90px;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:linear-gradient(135deg,#25452F 0%,#1B3A2A 55%,#14291E 100%);
+  }
+  .hero-bg img{
+    width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+    opacity:0.55;mix-blend-mode:multiply;
+  }
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(18,42,29,0.15) 0%,rgba(18,42,29,0.85) 100%);
+  }
+  .hero-content{position:relative;z-index:2;max-width:740px;}
+  .hero-eyebrow{
+    color:var(--green-soft);font-size:0.92rem;font-weight:500;
+    letter-spacing:0.01em;margin-bottom:18px;
+  }
+  .hero h1{
+    color:var(--white);font-size:clamp(2.2rem,5vw,3.6rem);
+    font-weight:500;margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p{
+    color:rgba(255,255,255,0.82);font-size:1.05rem;max-width:560px;margin-bottom:34px;
+  }
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    padding:14px 26px;border-radius:2px;font-size:0.95rem;font-weight:500;
+    display:inline-flex;align-items:center;gap:8px;transition:all .25s ease;
+  }
+  .btn-primary{background:var(--gold);color:var(--forest-deep);}
+  .btn-primary:hover{background:#C6A362;}
+  .btn-outline{border:1px solid rgba(255,255,255,0.5);color:var(--white);}
+  .btn-outline:hover{background:rgba(255,255,255,0.12);}
+  .btn-dark{background:var(--forest);color:var(--white);}
+  .btn-dark:hover{background:var(--forest-deep);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--forest-deep);padding:38px 0;}
+  .trust-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+  }
+  .trust-item .num{
+    font-family:'JetBrains Mono',monospace;color:var(--gold);
+    font-size:1.6rem;font-weight:500;display:block;margin-bottom:6px;
+  }
+  .trust-item .lbl{color:rgba(255,255,255,0.75);font-size:0.85rem;}
+  @media(max-width:760px){
+    .trust-grid{grid-template-columns:repeat(2,1fr);row-gap:28px;}
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:100px 0;}
+  @media(max-width:760px){section{padding:70px 0;}}
+  .section-label{
+    color:var(--green);font-size:0.9rem;font-weight:600;margin-bottom:12px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);max-width:640px;}
+  .section-sub{color:#5A5750;max-width:600px;margin-top:16px;font-size:1.02rem;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;
+  }
+  .about-img{
+    aspect-ratio:4/5;overflow:hidden;border-radius:2px;background:var(--cream-deep);
+    position:relative;
+  }
+  .about-img img{width:100%;height:100%;object-fit:cover;}
+  .about-text p{margin-bottom:18px;color:#41403A;}
+  .about-quote{
+    border-left:2px solid var(--gold);padding-left:22px;margin:28px 0;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;
+    color:var(--forest-deep);
+  }
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .about-img{aspect-ratio:16/10;}
+  }
+
+  /* ---------- EXPERTISE ---------- */
+  .expertise{background:var(--cream-deep);}
+  .exp-header{margin-bottom:56px;}
+  .exp-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .exp-card{
+    background:var(--cream-deep);padding:36px 30px;
+  }
+  .exp-icon{width:34px;height:34px;color:var(--forest);margin-bottom:20px;}
+  .exp-card h3{font-size:1.15rem;margin-bottom:10px;}
+  .exp-card p{color:#54524B;font-size:0.94rem;}
+  @media(max-width:860px){
+    .exp-grid{grid-template-columns:1fr;}
+  }
+  @media(min-width:861px) and (max-width:1080px){
+    .exp-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- CONSULTANCY ---------- */
+  .consultancy{background:var(--forest);color:var(--white);}
+  .cons-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .consultancy .section-label{color:var(--gold);}
+  .consultancy h2{color:var(--white);}
+  .consultancy p.section-sub{color:rgba(255,255,255,0.75);}
+  .service-list{list-style:none;margin-top:32px;}
+  .service-list li{
+    padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.15);
+    display:flex;align-items:baseline;gap:14px;font-size:1rem;
+  }
+  .service-list li::before{
+    content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;
+    flex-shrink:0;transform:translateY(-2px);
+  }
+  @media(max-width:860px){.cons-grid{grid-template-columns:1fr;gap:36px;}}
+
+  /* ---------- FARM / BLES DAIRIES ---------- */
+  .farm{background:var(--white);}
+  .farm-top{max-width:680px;margin-bottom:48px;}
+  .farm-gallery{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;
+  }
+  .farm-gallery .g1{grid-row:1/3;}
+  .farm-gallery div{
+    overflow:hidden;border-radius:2px;background:var(--cream-deep);
+    aspect-ratio:1/1;
+  }
+  .farm-gallery .g1{aspect-ratio:auto;}
+  .farm-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .farm-gallery div:hover img{transform:scale(1.04);}
+  @media(max-width:760px){
+    .farm-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+    .farm-gallery .g1{grid-row:auto;grid-column:1/3;aspect-ratio:16/10;}
+  }
+
+  /* ---------- KNOWLEDGE HUB / ARTICLES ---------- */
+  .knowledge{background:var(--cream);}
+  .article-card{
+    display:grid;grid-template-columns:280px 1fr;gap:40px;
+    padding:40px 0;border-top:1px solid var(--line);
+  }
+  .article-card:last-child{border-bottom:1px solid var(--line);}
+  .article-cover{
+    aspect-ratio:4/3;overflow:hidden;border-radius:2px;background:var(--cream-deep);
+  }
+  .article-cover img{width:100%;height:100%;object-fit:cover;}
+  .article-meta{color:var(--green);font-size:0.8rem;margin-bottom:10px;}
+  .article-content h3{font-size:1.4rem;margin-bottom:14px;max-width:520px;}
+  .article-intro{color:#41403A;max-width:600px;}
+  .article-content details{margin-top:18px;}
+  .article-content summary{
+    cursor:pointer;color:var(--forest);font-weight:600;font-size:0.92rem;
+    list-style:none;display:inline-flex;align-items:center;gap:6px;
+  }
+  .article-content summary::-webkit-details-marker{display:none;}
+  .article-content summary::after{
+    content:'+';font-family:'JetBrains Mono',monospace;font-size:1rem;
+  }
+  .article-content details[open] summary::after{content:'-';}
+  .article-full{
+    margin-top:22px;max-width:640px;padding-top:22px;border-top:1px solid var(--line);
+  }
+  .article-full h4{font-size:1.05rem;margin-bottom:10px;margin-top:22px;color:var(--forest-deep);}
+  .article-full h4:first-child{margin-top:0;}
+  .article-full p{color:#41403A;margin-bottom:12px;}
+  .article-full ul{margin:0 0 14px 20px;color:#41403A;}
+  .article-full li{margin-bottom:6px;}
+  .article-full .btn{margin-top:16px;}
+  .article-related{margin-top:20px;font-size:0.88rem;color:#77746C;}
+  .article-related a{color:var(--forest);font-weight:500;}
+  @media(max-width:760px){
+    .article-card{grid-template-columns:1fr;gap:20px;}
+    .article-cover{aspect-ratio:16/9;}
+  }
+
+  /* ---------- SMART COW ---------- */
+  .techstrip{background:var(--cream-deep);}
+  .tech-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:40px;
+    flex-wrap:wrap;
+  }
+  .tech-inner h2{font-size:1.6rem;max-width:480px;}
+  .tech-inner p{color:#54524B;max-width:480px;margin-top:14px;}
+
+  /* ---------- VIDEO / SOCIAL ---------- */
+  .social{background:var(--forest-deep);color:var(--white);text-align:center;}
+  .social h2{color:var(--white);margin-bottom:8px;}
+  .video-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 34px;
+  }
+  .video-frame{
+    aspect-ratio:9/16;background:var(--forest);border-radius:2px;overflow:hidden;
+  }
+  .video-frame iframe{width:100%;height:100%;}
+  @media(max-width:760px){
+    .video-grid{grid-template-columns:1fr;max-width:320px;}
+  }
+  .fb-link{
+    display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-weight:500;
+    margin-top:10px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--white);}
+  .testi-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;
+  }
+  .testi-card{
+    background:var(--cream-deep);padding:32px;border-radius:2px;border-top:2px solid var(--gold);
+  }
+  .testi-tag{color:var(--green);font-size:0.75rem;margin-bottom:16px;}
+  .testi-quote{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--forest-deep);
+    margin-bottom:18px;
+  }
+  .testi-name{font-size:0.9rem;font-weight:600;color:var(--charcoal);}
+  .testi-name span{font-weight:400;color:#77746C;margin-left:8px;font-size:0.82rem;}
+  @media(max-width:760px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--white);}
+  .gal-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:10px;
+  }
+  .gal-grid div{overflow:hidden;background:var(--cream-deep);}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;}
+  .gal-grid .tall{grid-row:span 2;}
+  @media(max-width:860px){
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--forest);color:var(--white);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .contact h2{color:var(--white);}
+  .contact-sub{color:rgba(255,255,255,0.78);margin-top:16px;max-width:460px;}
+  .contact-methods{margin-top:32px;}
+  .contact-methods a, .contact-methods div{
+    display:block;color:var(--white);font-size:1rem;margin-bottom:12px;
+  }
+  .contact-methods .lbl{color:rgba(255,255,255,0.55);font-size:0.8rem;margin-bottom:2px;}
+  .contact-btns{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:36px;}}
+
+  .order-card{
+    background:var(--forest-deep);border:1px solid rgba(255,255,255,0.12);
+    padding:36px;border-radius:2px;
+  }
+  .order-card label{display:block;font-size:0.85rem;color:rgba(255,255,255,0.7);margin-bottom:6px;}
+  .order-card select,.order-card input,.order-card textarea{
+    width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);
+    color:var(--white);padding:11px 12px;border-radius:2px;margin-bottom:18px;
+    font-family:'Inter',sans-serif;font-size:0.95rem;
+  }
+  .order-card textarea{resize:vertical;min-height:80px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--forest-deep);color:rgba(255,255,255,0.6);padding:44px 0 30px;}
+  .footer-inner{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+  }
+  .footer-brand{font-family:'Fraunces',serif;color:var(--white);font-size:1.1rem;}
+  .footer-role{font-size:0.85rem;margin-top:4px;}
+  .footer-social{display:flex;gap:18px;}
+  .footer-social a{color:rgba(255,255,255,0.6);}
+  .footer-social a:hover{color:var(--gold);}
+  .footer-bottom{
+    margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);
+    font-size:0.8rem;text-align:center;
+  }
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="brand">Joel <span>Cherono</span></a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Joel</a></li>
+        <li><a href="#consultancy">Consultancy</a></li>
+        <li><a href="#knowledge">Farm Knowledge</a></li>
+        <li><a href="#sochoi-dairies">Sochoi Dairies</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="nav-cta">Book Consultation</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#home">Home</a>
+    <a href="#about">About Joel</a>
+    <a href="#consultancy">Consultancy</a>
+    <a href="#knowledge">Farm Knowledge</a>
+    <a href="#sochoi-dairies">Sochoi Dairies</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Book Consultation</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038530/1789037070673_pfp5lw.jpg" alt="Joel Cherono on his dairy farm" onerror="this.onerror=null;this.style.display='none';">
+  </div>
+  <div class="wrap hero-content">
+    <p class="hero-eyebrow"></p>
+    <h1>Practical dairy knowledge, <em>from farm to future</em></h1>
+    <p>Helping farmers build profitable, productive and sustainable dairy enterprises through modern farming practices, animal science and real farm experience.</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-primary">Book Consultation</a>
+      <a href="https://wa.me/254115244196?text=Hi%20Joel%2C%20I%20found%20your%20website%20and%20would%20like%20to%20connect." class="btn btn-outline" target="_blank" rel="noopener">Connect on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><span class="num mono">12K+</span><span class="lbl">Facebook community</span></div>
+    <div class="trust-item"><span class="num mono">1,600+</span><span class="lbl">Educational posts shared</span></div>
+    <div class="trust-item"><span class="num mono">4+</span><span class="lbl">Years managing dairy operations</span></div>
+    <div class="trust-item"><span class="num mono">Egerton</span><span class="lbl">Animal Scientist, Egerton University</span></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789039646/20260910_142403_f7onf9.jpg" alt="Joel Cherono" onerror="this.onerror=null;this.style.display='none';">
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Meet Joel Cherono</h2>
+      <p style="margin-top:24px;">Joel Cherono is an Animal Scientist, Dairy Farming Consultant and passionate dairy farmer dedicated to helping farmers understand modern dairy production.</p>
+      <p>Through practical experience, farm management and continuous learning, Joel shares knowledge on animal nutrition, breeding, calf management, herd health and profitable dairy farming.</p>
+      <div class="about-quote">Healthy animals, proper management and good records create profitable dairy businesses.</div>
+    </div>
+  </div>
+</section>
+
+<section class="expertise">
+  <div class="wrap">
+    <div class="exp-header reveal">
+      <p class="section-label">Expertise</p>
+      <h2 class="section-title">Areas of expertise</h2>
+      <p class="section-sub">Five practical pillars that shape every recommendation Joel makes on farm.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-4 2-7 6-7 10a7 7 0 0 0 14 0c0-4-3-8-7-10z"/><path d="M12 21V10"/></svg>
+        <h3>Dairy nutrition</h3>
+        <p>Understanding what cows eat is the foundation of successful dairy farming. Joel shares practical approaches to feeding, silage preparation and feed formulation.</p>
+      </div>
+      <div class="exp-card reveal">
+        <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M9 9c1.5 1.5 4.5 1.5 6 0M9 15c1.5-1.5 4.5-1.5 6 0"/></svg>
+        <h3>Breeding &amp; genetics</h3>
+        <p>Choosing the right breeds and understanding lineage plays an important role in long term productivity and herd performance.</p>
+      </div>
+      <div class="exp-card reveal">
+        <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+        <h3>Calf management</h3>
+        <p>From colostrum management to weaning, proper calf care creates the foundation for future productive cows.</p>
+      </div>
+      <div class="exp-card reveal">
+        <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z"/></svg>
+        <h3>Herd health &amp; comfort</h3>
+        <p>Animal comfort, bedding, housing and health management directly influence productivity and milk quality.</p>
+      </div>
+      <div class="exp-card reveal">
+        <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 14l3-3 2 2 4-5"/></svg>
+        <h3>Farm records &amp; technology</h3>
+        <p>Modern dairy farming requires proper records. Digital tools help farmers track production, breeding and farm performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="consultancy" id="consultancy">
+  <div class="wrap cons-grid">
+    <div class="reveal">
+      <p class="section-label">Consultancy</p>
+      <h2 class="section-title">Dairy farming support for growing farmers</h2>
+      <p class="section-sub">Whether starting a dairy project or improving an existing farm, Joel provides practical guidance based on real farming experience.</p>
+      <a href="#contact" class="btn btn-primary" style="margin-top:32px;">Request Consultation</a>
+    </div>
+    <ul class="service-list reveal">
+      <li>Dairy farm consultation</li>
+      <li>Feeding and nutrition guidance</li>
+      <li>Calf rearing advice</li>
+      <li>Farm management recommendations</li>
+      <li>Dairy project planning</li>
+      <li>Farmer training</li>
+    </ul>
+  </div>
+</section>
+
+<section class="farm" id="sochoi-dairies">
+  <div class="wrap">
+    <div class="farm-top reveal">
+      <p class="section-label">The farm</p>
+      <h2 class="section-title">Inside Sochoi Dairies Ltd</h2>
+      <p class="section-sub">Sochoi Dairies Ltd represents practical dairy farming focused on animal care, good management practices and continuous improvement. From feeding strategies to cow comfort and production management, every detail matters when building a successful dairy enterprise.</p>
+    </div>
+    <div class="farm-gallery reveal">
+      <div class="g1"><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038194/1789036917439_aarf7f.jpg" alt="Sochoi Dairies Ltd farm" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038375/1789036993270_bsynvh.jpg" alt="Dairy cows at Sochoi Dairies Ltd" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038256/1789036950281_tb0rdf.jpg" alt="Feeding at Sochoi Dairies Ltd" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038349/1789036972512_m0z25v.jpg" alt="Joel Cherono with cows" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038225/1789036940378_sxbdwb.jpg" alt="Milking at Sochoi Dairies Ltd" onerror="this.onerror=null;this.style.display='none';"></div>
+    </div>
+  </div>
+</section>
+
+<section class="knowledge" id="knowledge">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <p class="section-label">Knowledge hub</p>
+      <h2 class="section-title">Dairy farming insights</h2>
+      <p class="section-sub">Full articles drawn from real farm practice at Sochoi Dairies Ltd. Open any article to read it in full.</p>
+    </div>
+
+    <article class="article-card reveal" id="article-feed">
+      <div class="article-cover">
+        <img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038699/b25b545e365dedabf5693f4bd4c46f55_iq4zjm.jpg" alt="Feed management on a dairy farm" onerror="this.onerror=null;this.style.display='none';">
+      </div>
+      <div class="article-content">
+        <p class="article-meta mono">Dairy Nutrition, 2 min read, by Joel Cherono</p>
+        <h3>Feed management: the foundation of a profitable dairy farm</h3>
+        <p class="article-intro">Many farmers focus on buying good cows, but profitable dairy farming starts before the cow arrives on the farm. A dairy enterprise is built on three major foundations, nutrition, animal health and proper management. Among these, feeding plays one of the biggest roles because what a cow eats directly affects milk production, fertility, health and profitability.</p>
+        <details>
+          <summary>Read full article</summary>
+          <div class="article-full">
+            <h4>Why feed management matters</h4>
+            <p>A productive dairy cow requires a balanced diet that provides energy, protein, minerals and enough fibre for proper digestion. Poor feeding practices can lead to:</p>
+            <ul>
+              <li>Reduced milk production</li>
+              <li>Poor body condition</li>
+              <li>Reproductive challenges</li>
+              <li>Increased disease risks</li>
+              <li>Higher production costs</li>
+            </ul>
+            <p>Farmers should understand that expensive feeds do not always mean better results. The goal is to provide the right nutrients at the right stage of production.</p>
+            <h4>Plan feeds before bringing cows</h4>
+            <p>One common mistake among new dairy farmers is purchasing animals before preparing a feeding plan. Before starting a dairy project, farmers should consider:</p>
+            <ul>
+              <li>Availability of quality feeds throughout the year</li>
+              <li>Feed storage options</li>
+              <li>Silage preparation</li>
+              <li>Feed formulation</li>
+              <li>Water availability</li>
+            </ul>
+            <p>A successful dairy farm begins with a feeding strategy, not just buying animals.</p>
+            <h4>The role of silage preparation</h4>
+            <p>Silage is an important feed resource, especially when farmers want consistent feed supply. One of the most important steps during silage preparation is proper compaction. Good compaction:</p>
+            <ul>
+              <li>Removes oxygen</li>
+              <li>Improves fermentation</li>
+              <li>Prevents spoilage</li>
+              <li>Maintains feed quality</li>
+            </ul>
+            <p>Small mistakes during silage preparation can lead to major feed losses.</p>
+            <h4>Final thoughts</h4>
+            <p>Healthy cows produce better when they receive proper nutrition and management. At Sochoi Dairies Ltd, Joel Cherono continues to share practical approaches that help farmers improve feeding strategies and build sustainable dairy enterprises.</p>
+            <a href="https://wa.me/254115244196?text=Hi%20Joel%2C%20I%20read%20your%20article%20on%20feed%20management%20and%20would%20like%20help%20improving%20my%20dairy%20feeding%20program." class="btn btn-primary" target="_blank" rel="noopener">Need help with your feeding program? Contact Joel</a>
+          </div>
+        </details>
+        <p class="article-related">Related: <a href="#article-calf">Calf rearing</a>, <a href="#article-breed">choosing the right breed</a></p>
+      </div>
+    </article>
+
+    <article class="article-card reveal" id="article-calf">
+      <div class="article-cover">
+        <img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038662/1789037203236_zawx1z.jpg" alt="Calf rearing on a dairy farm" onerror="this.onerror=null;this.style.display='none';">
+      </div>
+      <div class="article-content">
+        <p class="article-meta mono">Calf Management, 2 min read, by Joel Cherono</p>
+        <h3>Calf rearing: building the future of your dairy herd</h3>
+        <p class="article-intro">A successful dairy farm does not start with a mature cow. It starts with a healthy calf. The way calves are managed during their early stages determines their future growth, productivity and overall performance.</p>
+        <details>
+          <summary>Read full article</summary>
+          <div class="article-full">
+            <p>Proper calf management requires attention from birth until the animal joins the milking herd.</p>
+            <h4>Stage one: birth and colostrum management</h4>
+            <p>The first days of a calf's life are extremely important. During this stage farmers should focus on:</p>
+            <ul>
+              <li>Providing quality colostrum immediately after birth</li>
+              <li>Proper navel care</li>
+              <li>Maintaining hygiene</li>
+              <li>Monitoring calf health</li>
+            </ul>
+            <p>Colostrum provides essential antibodies that help protect calves from diseases.</p>
+            <h4>Stage two: early rearing</h4>
+            <p>Between 2 to 8 weeks, calves require proper nutrition to support growth. Important areas include:</p>
+            <ul>
+              <li>Milk or milk replacers</li>
+              <li>Starter feeds</li>
+              <li>Clean water</li>
+              <li>Mineral supplementation</li>
+            </ul>
+            <p>Introducing calves to solid feeds early helps prepare them for the transition after weaning.</p>
+            <h4>Stage three: weaning period</h4>
+            <p>The transition period between 9 and 12 weeks requires careful management. Farmers should gradually reduce milk feeding while ensuring calves continue consuming quality starter feeds, hay, minerals and adequate water. Abrupt changes can stress calves and affect growth.</p>
+            <h4>Building better dairy businesses</h4>
+            <p>Investing in calf management is investing in the future of your herd. Every productive cow started as a calf that required proper care, nutrition and attention.</p>
+            <a href="https://wa.me/254115244196?text=Hi%20Joel%2C%20I%20read%20your%20article%20on%20calf%20rearing%20and%20would%20like%20some%20advice%20for%20my%20farm." class="btn btn-primary" target="_blank" rel="noopener">Need calf rearing advice? Contact Joel</a>
+          </div>
+        </details>
+        <p class="article-related">Related: <a href="#article-feed">Feed management</a>, <a href="#article-breed">choosing the right breed</a></p>
+      </div>
+    </article>
+
+    <article class="article-card reveal" id="article-breed">
+      <div class="article-cover">
+        <img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038638/1789037192283_qq2plz.jpg" alt="Dairy breed selection" onerror="this.onerror=null;this.style.display='none';">
+      </div>
+      <div class="article-content">
+        <p class="article-meta mono">Breeding and Genetics, 2 min read, by Joel Cherono</p>
+        <h3>Choosing the right dairy breed: why genetics matter</h3>
+        <p class="article-intro">Choosing dairy breeds is one of the biggest decisions a farmer makes. However, selecting a cow should not only be based on appearance or body size. Good genetics, production history and health records play a major role in determining long term performance.</p>
+        <details>
+          <summary>Read full article</summary>
+          <div class="article-full">
+            <h4>Beyond physical appearance</h4>
+            <p>A large cow does not automatically mean higher production. Farmers should consider:</p>
+            <ul>
+              <li>Family production history</li>
+              <li>Fertility performance</li>
+              <li>Disease resistance</li>
+              <li>Adaptability to local conditions</li>
+            </ul>
+            <p>The best breed is one that matches your farm environment and management ability.</p>
+            <h4>The importance of records</h4>
+            <p>Modern dairy farming requires proper record keeping. Records help farmers track milk production, breeding performance, health history and growth rates. Technology solutions such as digital herd management systems can help farmers make better decisions using accurate information.</p>
+            <h4>Final thoughts</h4>
+            <p>Successful dairy farming is a combination of good genetics, proper nutrition and excellent management. Choosing the right animals is the beginning, but how you manage them determines the results.</p>
+            <a href="https://wa.me/254115244196?text=Hi%20Joel%2C%20I%20read%20your%20article%20on%20dairy%20breeds%20and%20would%20like%20advice%20on%20breed%20selection." class="btn btn-primary" target="_blank" rel="noopener">Need help choosing a breed? Contact Joel</a>
+          </div>
+        </details>
+        <p class="article-related">Related: <a href="#article-feed">Feed management</a>, <a href="#article-calf">calf rearing</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="techstrip">
+  <div class="wrap tech-inner">
+    <div class="reveal">
+      <p class="section-label">Technology</p>
+      <h2>Embracing technology in dairy farming</h2>
+      <p>Modern dairy farming requires accurate records and better decision making. Joel recommends farmers explore digital solutions such as Smart Cow Kenya to help manage breeding records, production tracking and herd information.</p>
+    </div>
+    <a href="#knowledge" class="btn btn-dark reveal">Learn More</a>
+  </div>
+</section>
+
+
+
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What farmers are saying</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <p class="testi-tag mono">Recommends Dairy Farming with Joel Cherono</p>
+        <p class="testi-quote">Nice job and keep it up and God will continue blessing you.</p>
+        <p class="testi-name">Ule Mmoja Keyah <span>14 April 2026</span></p>
+      </div>
+      <div class="testi-card reveal">
+        <p class="testi-tag mono">Recommends Dairy Farming with Joel Cherono</p>
+        <p class="testi-quote">I highly recommend this page for farmers and even those who want to learn more about dairy farming. This is a place to be.</p>
+        <p class="testi-name">Ebby Lorkia <span>16 July 2026</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:44px;">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">On the farm</h2>
+    </div>
+    <div class="gal-grid reveal">
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038605/1789037152817_gth8pd.jpg" alt="Dairy cows" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038566/1789037110738_ym1qas.jpg" alt="Farm structures" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038505/1789037067402_sjpcnt.jpg" alt="Feeding time" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038457/1789037059469_ill6td.jpg" alt="Milking session" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038409/1789037052648_vwmhio.jpg" alt="Joel working with animals" onerror="this.onerror=null;this.style.display='none';"></div>
+      <div><img src="https://res.cloudinary.com/hztm3zo8/image/upload/v1789038116/1789036883201_bpqq94.jpg" alt="Sochoi Dairies Ltd farm view" onerror="this.onerror=null;this.style.display='none';"></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="section-label" style="color:var(--gold);">Get in touch</p>
+      <h2 class="section-title">Start your dairy farming journey</h2>
+      <p class="contact-sub">Whether you need guidance on starting a dairy project, improving production or learning modern farming practices, connect with Joel.</p>
+      <div class="contact-methods">
+        <div><div class="lbl">Phone</div><a href="tel:+254115244196">0115 244196</a></div>
+        <div><div class="lbl">Email</div><a href="mailto:cheronojoel669@gmail.com">cheronojoel669@gmail.com</a></div>
+      </div>
+      <div class="contact-btns">
+        <a href="https://wa.me/254115244196?text=Hi%20Joel%2C%20I%20would%20like%20to%20book%20a%20dairy%20consultation." class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Joel</a>
+        <a href="#" class="btn btn-outline">Facebook</a>
+      </div>
+    </div>
+    <div class="order-card reveal">
+      <label for="topic">What do you need help with</label>
+      <select id="topic">
+        <option>Dairy farm consultation</option>
+        <option>Feeding and nutrition guidance</option>
+        <option>Calf rearing advice</option>
+        <option>Farm management recommendations</option>
+        <option>Dairy project planning</option>
+        <option>Farmer training</option>
+      </select>
+      <label for="name">Your name</label>
+      <input id="name" type="text" placeholder="Full name">
+      <label for="location">Farm location</label>
+      <input id="location" type="text" placeholder="County or town">
+      <label for="message">A little about your farm</label>
+      <textarea id="message" placeholder="Herd size, current challenge, goals"></textarea>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;border:none;cursor:pointer;" onclick="sendOrder()">Send to WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">Dairy Farming with Joel Cherono</div>
+      <div class="footer-role">Animal Scientist | Dairy Farming Consultant</div>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.7V3.2C16.5 3.1 15.4 3 14.2 3c-2.6 0-4.4 1.6-4.4 4.5v2.3H7v3.2h2.8v8h3.7z"/></svg>
+      </a>
+      <a href="https://wa.me/254115244196" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.1a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7.9-.3.1-.5 0a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4s-.5-1.2-.7-1.6-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.8 10.8 0 0 0 4.4 3.9c1.6.7 2.2.7 2.6.6a2.3 2.3 0 0 0 1.5-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+      </a>
+      <a href="mailto:cheronojoel669@gmail.com" aria-label="Email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">&copy; 2026 Joel Cherono. All rights reserved.</div>
+</footer>
+
+<script>
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', function(){
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileNav.classList.remove('open'); });
+  });
+
+  function sendOrder(){
+    var topic = document.getElementById('topic').value;
+    var name = document.getElementById('name').value || 'a farmer';
+    var location = document.getElementById('location').value || 'not specified';
+    var message = document.getElementById('message').value || 'no additional details yet';
+    var text = 'Hi Joel, my name is ' + name + '. I need help with: ' + topic + '. Farm location: ' + location + '. Details: ' + message;
+    window.open('https://wa.me/254115244196?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  if ('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
